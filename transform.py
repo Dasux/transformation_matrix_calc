@@ -65,7 +65,16 @@ I = np.eye(4)  # identity matrix
 commands = []
 print("\n enter the transformations (e.g. rx 90, ty 3):\n")
 for i in range(1, n+1):
-    commands.append(input(f"{i} ").lower())
+    commands.append(input(f"{i} ").lower()) # made it lower--- so that the command isnt case sensitive
+
+    # one more thing i must add--- is a way for the user to be able to felxibly enter commands
+    # which means "rx 30" should be the same as "rx30"
+    # they shouldn't have to worry about spaces
+    #
+    # one approach is to just remove all spaces from the input string... but that is rash 
+    # another approach is to check for alpha-numeric combinations and split them as the value of the command 
+    # i can do it by extracting the first and last occurence of an alpha-num character--- and getting the index of that 
+    # then i could just slice the string--- simple shit! 
 
     # im using a dictionary to map command prefixes to functions cause im lazy
 operations = {
